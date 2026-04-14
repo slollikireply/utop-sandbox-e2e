@@ -1,0 +1,10 @@
+target/
+build/
+.mvn/
+!.mvn/wrapper/
+.gradle/
+*.class
+*.jar
+*.iml
+.idea/
+.vscode/
