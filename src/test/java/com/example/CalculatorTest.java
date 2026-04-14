@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 /**
- * Intentionally incomplete tests: only `add` and `multiply` are covered so
- * PITest leaves surviving mutants on `subtract` and `divide`. The UTOP agent
- * is expected to close that gap by generating additional tests.
+ * Feature branch: adds weak tests for subtract and divide. The UTOP agent
+ * is expected to strengthen them so that PITest mutants on subtract/divide
+ * are killed.
  */
 class CalculatorTest {
 
@@ -26,5 +26,15 @@ class CalculatorTest {
     @Test
     void multipliesTwoPositiveIntegers() {
         assertEquals(12, calculator.multiply(3, 4));
+    }
+
+    @Test
+    void subtractReturnsZeroForEqualOperands() {
+        assertEquals(0, calculator.subtract(5, 5));
+    }
+
+    @Test
+    void divideReturnsOneForEqualOperands() {
+        assertEquals(1, calculator.divide(7, 7));
     }
 }
