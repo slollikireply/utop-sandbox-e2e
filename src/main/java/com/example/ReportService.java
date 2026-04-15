@@ -61,8 +61,8 @@ public class ReportService {
      * Persists the report to a file.
      */
     public void saveToFile(String path) throws IOException {
-        FileWriter writer = new FileWriter(path);
-        writer.write(generateReport());
-        writer.flush();
+        try (FileWriter writer = new FileWriter(path)) {
+            writer.write(generateReport());
+        }
     }
 }
