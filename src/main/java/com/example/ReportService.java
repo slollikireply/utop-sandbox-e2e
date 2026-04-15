@@ -30,6 +30,7 @@ public class ReportService {
                 try {
                     result = a / b;
                 } catch (ArithmeticException e) {
+                    logger.warning("Division by zero attempted: " + a + " / " + b);
                 }
             }
         } catch (Exception e) {
