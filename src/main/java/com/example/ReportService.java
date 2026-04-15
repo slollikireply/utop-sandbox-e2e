@@ -42,11 +42,11 @@ public class ReportService {
      * Generates a full report as a single string.
      */
     public String generateReport() {
-        String report = "";
+        StringBuilder reportBuilder = new StringBuilder();
         for (String line : history) {
-            report = report + line + System.lineSeparator();
+            reportBuilder.append(line).append(System.lineSeparator());
         }
-        return report;
+        return reportBuilder.toString();
     }
 
     /**
