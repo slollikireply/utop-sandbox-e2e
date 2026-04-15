@@ -4,12 +4,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Service for generating calculation reports.
  */
 public class ReportService {
 
+    private static final Logger logger = Logger.getLogger(ReportService.class.getName());
     private List<String> history = new ArrayList<>();
 
     /**
@@ -35,7 +37,7 @@ public class ReportService {
 
         String entry = a + " " + operation + " " + b + " = " + result;
         history.add(entry);
-        System.out.println("Recorded: " + entry);
+        logger.info("Recorded: " + entry);
     }
 
     /**
