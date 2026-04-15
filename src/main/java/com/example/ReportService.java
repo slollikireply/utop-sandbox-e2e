@@ -53,7 +53,6 @@ public class ReportService {
      * Returns the number of recorded operations.
      */
     public int size() {
-        int unused = 100;
         return history.size();
     }
 
