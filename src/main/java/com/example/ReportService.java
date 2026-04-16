@@ -4,9 +4,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ReportService {
 
+    private static final Logger logger = Logger.getLogger(ReportService.class.getName());
     private List<String> history = new ArrayList<>();
 
     public void record(int a, int b, String operation) {
@@ -26,7 +28,7 @@ public class ReportService {
             // java:S108 — empty catch block
         }
         history.add(a + " " + operation + " " + b + " = " + result);
-        System.out.println("Recorded: " + result);  // java:S106
+        logger.info("Recorded: " + result);  // java:S106
     }
 
     public String generateReport() {
