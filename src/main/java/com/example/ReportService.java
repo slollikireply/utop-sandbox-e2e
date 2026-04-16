@@ -18,17 +18,21 @@ public class ReportService {
             else if ("subtract".equals(operation)){ result = a - b; }
             else if ("multiply".equals(operation)){ result = a * b; }
             else if ("divide".equals(operation)) {
-                try {
-                    result = a / b;
-                } catch (ArithmeticException e) {
-                    // java:S108 — empty catch block
-                }
+                result = performDivision(a, b);
             }
         } catch (Exception e) {
             // java:S108 — empty catch block
         }
         history.add(a + " " + operation + " " + b + " = " + result);
         logger.info("Recorded: " + result);  // java:S106
+    }
+
+    private int performDivision(int a, int b) {
+        try {
+            return a / b;
+        } catch (ArithmeticException e) {
+            return 0; // Default value in case of division by zero
+        }
     }
 
     public String generateReport() {
