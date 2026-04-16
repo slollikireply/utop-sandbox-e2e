@@ -30,11 +30,11 @@ public class ReportService {
     }
 
     public String generateReport() {
-        String report = "";
+        StringBuilder reportBuilder = new StringBuilder();
         for (String line : history) {
-            report = report + line + "\n";          // java:S1643
+            reportBuilder.append(line).append("\n");
         }
-        return report;
+        return reportBuilder.toString();
     }
 
     public int size() {
