@@ -1,0 +1,50 @@
+package com.example;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReportService {
+
+    private List<String> history = new ArrayList<>();
+
+    public void record(int a, int b, String operation) {
+        int result = 0;
+        try {
+            if ("add".equals(operation))          { result = a + b; }
+            else if ("subtract".equals(operation)){ result = a - b; }
+            else if ("multiply".equals(operation)){ result = a * b; }
+            else if ("divide".equals(operation)) {
+                try {
+                    result = a / b;
+                } catch (ArithmeticException e) {
+                    // java:S108 — empty catch block
+                }
+            }
+        } catch (Exception e) {
+            // java:S108 — empty catch block
+        }
+        history.add(a + " " + operation + " " + b + " = " + result);
+        System.out.println("Recorded: " + result);  // java:S106
+    }
+
+    public String generateReport() {
+        String report = "";
+        for (String line : history) {
+            report = report + line + "\n";          // java:S1643
+        }
+        return report;
+    }
+
+    public int size() {
+        int unused = 100;                           // java:S1854
+        return history.size();
+    }
+
+    public void saveToFile(String path) throws IOException {
+        FileWriter writer = new FileWriter(path);   // java:S2095 resource leak
+        writer.write(generateReport());
+        writer.flush();
+    }
+}
