@@ -38,7 +38,6 @@ public class ReportService {
     }
 
     public int size() {
-        int unused = 100;                           // java:S1854
         return history.size();
     }
 
