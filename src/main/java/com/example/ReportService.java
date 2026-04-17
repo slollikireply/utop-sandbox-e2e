@@ -43,8 +43,8 @@ public class ReportService {
     }
 
     public void saveToFile(String path) throws IOException {
-        FileWriter writer = new FileWriter(path);   // java:S2095 resource leak
-        writer.write(generateReport());
-        writer.flush();
+        try (FileWriter writer = new FileWriter(path)) {
+            writer.write(generateReport());
+        }
     }
 }
