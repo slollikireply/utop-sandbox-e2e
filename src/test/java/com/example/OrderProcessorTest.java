@@ -51,4 +51,11 @@ class OrderProcessorTest {
         double totalWithoutDiscount = processor.quote("alice", 64, 100.0);
         assertTrue(totalWithDiscount < totalWithoutDiscount);
     }
+
+    @Test
+    void quoteAppliesMaximumDiscountCorrectly() {
+        double total = processor.quote("alice", 30, 100.0);
+        double discountedTotal = processor.quote("alice", 30, 100.0, 100.0);
+        assertTrue(discountedTotal == 0.0);
+    }
 }
