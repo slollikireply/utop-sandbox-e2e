@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Minimal Java + Maven + JUnit 5 + PITest fixture used by the UTOP agent
-  integration tests and by the manual E2E smoke against a real Git remote.
+  Java + Maven + JUnit 5 + PITest fixture for the UTOP agent end-to-end tests.
 
-  The unit tests in CalculatorTest are intentionally incomplete: they exercise
-  `add` and `multiply` only, leaving mutations on `subtract` and `divide`
-  uncovered. PITest should therefore report surviving mutants, which is the
-  input signal the UTOP agent needs to improve the test suite.
+  The production classes (PriceCalculator, UserValidator) are exercised by
+  unit tests that intentionally use weak assertions: methods are CALLED so
+  PITest covers the lines, but the assertions are too permissive to detect
+  most mutations. PITest therefore reports many SURVIVED mutants, which is
+  exactly the input signal the UTOP agent needs to improve the suite.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>utop-fixture-calculator</artifactId>
+    <artifactId>utop-fixture-shop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
