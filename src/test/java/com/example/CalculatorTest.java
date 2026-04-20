@@ -26,6 +26,21 @@ public class CalculatorTest {
     }
 
     @Test
+    void multiplyHandlesPositiveOperands() {
+        assertEquals(6, calc.multiply(2, 3)); // Added test for both operands positive
+    }
+
+    @Test
+    void multiplyHandlesNegativeOperand() {
+        assertEquals(-6, calc.multiply(-2, 3)); // Added test for one operand negative
+    }
+
+    @Test
+    void multiplyHandlesBothNegativeOperands() {
+        assertEquals(6, calc.multiply(-2, -3)); // Added test for both operands negative
+    }
+
+    @Test
     void divideReturnsOneForEqualOperands() {
         assertEquals(1, calc.divide(4, 4));
     }
