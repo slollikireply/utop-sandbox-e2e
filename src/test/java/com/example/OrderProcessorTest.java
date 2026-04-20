@@ -58,4 +58,11 @@ class OrderProcessorTest {
         double discountedTotal = processor.quote("alice", 30, 100.0, 100.0);
         assertTrue(discountedTotal == 0.0);
     }
+
+    @Test
+    void quoteHandlesExactDiscount() {
+        double total = processor.quote("alice", 30, 100.0);
+        double discountedTotal = processor.quote("alice", 30, 100.0, 0.0);
+        assertTrue(discountedTotal == total);
+    }
 }
