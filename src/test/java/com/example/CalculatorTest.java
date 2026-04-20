@@ -32,6 +32,8 @@ public class CalculatorTest {
     @Test
     void absReturnsInputForPositive() {
         assertEquals(5, calc.abs(5));
+        assertEquals(0, calc.abs(0)); // Added test for zero input
+        assertEquals(5, calc.abs(-5)); // Added test for negative input
     }
 
     @Test
