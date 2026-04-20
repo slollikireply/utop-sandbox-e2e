@@ -1,6 +1,7 @@
 package com.example;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -34,7 +35,28 @@ class CalculatorTest {
     }
 
     @Test
+    void subtractHandlesPositiveResult() {
+        assertEquals(2, calculator.subtract(5, 3));
+    }
+
+    @Test
+    void subtractHandlesNegativeResult() {
+        assertEquals(-2, calculator.subtract(3, 5));
+    }
+
+    @Test
+    void subtractHandlesZeroSubtraction() {
+        assertEquals(5, calculator.subtract(5, 0));
+        assertEquals(-5, calculator.subtract(0, 5));
+    }
+
+    @Test
     void divideReturnsOneForEqualOperands() {
         assertEquals(1, calculator.divide(7, 7));
+    }
+
+    @Test
+    void divideHandlesDivisionByZero() {
+        assertThrows(ArithmeticException.class, () -> calculator.divide(5, 0));
     }
 }
