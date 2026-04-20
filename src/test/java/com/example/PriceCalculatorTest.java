@@ -58,4 +58,9 @@ class PriceCalculatorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> calculator.applyDiscount(100.0, 105.0));
     }
+
+    @Test
+    void appliesDiscountWithNegativePrice() {
+        assertEquals(-90.0, calculator.applyDiscount(-100.0, 10.0));
+    }
 }
