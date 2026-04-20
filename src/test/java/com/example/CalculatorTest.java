@@ -21,6 +21,21 @@ public class CalculatorTest {
     }
 
     @Test
+    void subtractHandlesPositiveResult() {
+        assertEquals(3, calc.subtract(8, 5)); // Added test for positive result
+    }
+
+    @Test
+    void subtractHandlesNegativeResult() {
+        assertEquals(-3, calc.subtract(5, 8)); // Added test for negative result
+    }
+
+    @Test
+    void subtractHandlesZeroSubtraction() {
+        assertEquals(5, calc.subtract(5, 0)); // Added test for subtracting zero
+    }
+
+    @Test
     void multiplyReturnsZeroWhenOneOperandIsZero() {
         assertEquals(0, calc.multiply(3, 0));
     }
