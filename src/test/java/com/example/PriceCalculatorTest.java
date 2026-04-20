@@ -63,4 +63,19 @@ class PriceCalculatorTest {
     void appliesSmallDiscountCorrectly() {
         assertEquals(99.9, calculator.applyDiscount(100.0, 0.1));
     }
+
+    @Test
+    void appliesMidRangeDiscountCorrectly() {
+        assertEquals(50.0, calculator.applyDiscount(100.0, 50.0));
+    }
+
+    @Test
+    void appliesVerySmallDiscountCorrectly() {
+        assertEquals(99.999, calculator.applyDiscount(100.0, 0.001));
+    }
+
+    @Test
+    void appliesDiscountToLargePriceCorrectly() {
+        assertEquals(900000000.0, calculator.applyDiscount(1000000000.0, 10.0));
+    }
 }
