@@ -50,5 +50,7 @@ class PriceCalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> calculator.applyDiscount(100.0, 101.0));
         // Added assertion to ensure discount of exactly 0% results in the original price
         assertEquals(100.0, calculator.applyDiscount(100.0, 0.0));
+        // Added assertion to ensure small discount is handled correctly
+        assertEquals(99.9, calculator.applyDiscount(100.0, 0.1));
     }
 }
