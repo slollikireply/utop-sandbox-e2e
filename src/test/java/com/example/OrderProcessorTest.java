@@ -34,4 +34,21 @@ class OrderProcessorTest {
         double total = processor.quote("alice", 65, 100.0);
         assertTrue(total < processor.quote("alice", 64, 100.0));
     }
+
+    @Test
+    void quoteHandlesZeroBasePrice() {
+        assertTrue(processor.quote("alice", 30, 0.0) == 0.0);
+    }
+
+    @Test
+    void quoteHandlesNegativeBasePrice() {
+        assertTrue(processor.quote("alice", 30, -100.0) < 0.0);
+    }
+
+    @Test
+    void quoteBoundaryAgeForDiscount() {
+        double totalWithDiscount = processor.quote("alice", 65, 100.0);
+        double totalWithoutDiscount = processor.quote("alice", 64, 100.0);
+        assertTrue(totalWithDiscount < totalWithoutDiscount);
+    }
 }
