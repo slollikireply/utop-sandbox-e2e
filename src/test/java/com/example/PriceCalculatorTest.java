@@ -52,4 +52,10 @@ class PriceCalculatorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> calculator.applyDiscount(100.0, -5.0));
     }
+
+    @Test
+    void rejectsDiscountGreaterThanHundredPercent() {
+        assertThrows(IllegalArgumentException.class,
+                () -> calculator.applyDiscount(100.0, 105.0));
+    }
 }
