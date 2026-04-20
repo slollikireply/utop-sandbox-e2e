@@ -18,6 +18,9 @@ public class CalculatorTest {
     @Test
     void subtractReturnsZeroForEqualOperands() {
         assertEquals(0, calc.subtract(5, 5));
+        assertEquals(3, calc.subtract(8, 5)); // Added test for subtracting a smaller number from a larger number
+        assertEquals(-3, calc.subtract(5, 8)); // Added test for subtracting a larger number from a smaller number
+        assertEquals(-1, calc.subtract(-3, -2)); // Added test for subtracting negative numbers
     }
 
     @Test
