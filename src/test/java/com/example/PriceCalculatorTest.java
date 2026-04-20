@@ -1,5 +1,6 @@
 package com.example;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -35,5 +36,20 @@ class PriceCalculatorTest {
     void rejectsNegativeDiscount() {
         assertThrows(IllegalArgumentException.class,
                 () -> calculator.applyDiscount(100.0, -5.0));
+    }
+
+    @Test
+    void appliesDiscountCorrectly() {
+        assertEquals(90.0, calculator.applyDiscount(100.0, 10.0));
+    }
+
+    @Test
+    void appliesZeroDiscountCorrectly() {
+        assertEquals(100.0, calculator.applyDiscount(100.0, 0.0));
+    }
+
+    @Test
+    void appliesMaximumDiscountCorrectly() {
+        assertEquals(0.0, calculator.applyDiscount(100.0, 100.0));
     }
 }
