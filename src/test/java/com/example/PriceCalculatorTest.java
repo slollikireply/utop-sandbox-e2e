@@ -83,4 +83,12 @@ class PriceCalculatorTest {
     void appliesDiscountToZeroPrice() {
         assertEquals(0.0, calculator.applyDiscount(0.0, 10.0));
     }
+
+    @Test
+    void appliesDiscountWithBoundaryValues() {
+        assertEquals(0.0, calculator.applyDiscount(100.0, 100.0));
+        assertEquals(100.0, calculator.applyDiscount(100.0, 0.0));
+        assertEquals(99.999, calculator.applyDiscount(100.0, 0.001));
+        assertEquals(0.0, calculator.applyDiscount(100.0, 100.0));
+    }
 }
