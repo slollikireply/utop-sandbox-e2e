@@ -73,4 +73,14 @@ class PriceCalculatorTest {
     void appliesDiscountWithLargePrice() {
         assertEquals(900000000.0, calculator.applyDiscount(1000000000.0, 10.0));
     }
+
+    @Test
+    void appliesDiscountWithFiftyPercent() {
+        assertEquals(50.0, calculator.applyDiscount(100.0, 50.0));
+    }
+
+    @Test
+    void appliesDiscountWithFractionalPercent() {
+        assertEquals(66.67, calculator.applyDiscount(100.0, 33.33), 0.01);
+    }
 }
