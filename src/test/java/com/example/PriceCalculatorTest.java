@@ -53,6 +53,6 @@ class PriceCalculatorTest {
         // Added assertion to ensure small discount is handled correctly
         assertEquals(99.9, calculator.applyDiscount(100.0, 0.1));
         // Added assertion to ensure discount very close to 100% is handled correctly
-        assertEquals(0.1, calculator.applyDiscount(100.0, 99.9));
+        assertEquals(0.1, calculator.applyDiscount(100.0, 99.9), 0.0001);
     }
 }
