@@ -63,4 +63,9 @@ class PriceCalculatorTest {
     void appliesDiscountWithNegativePrice() {
         assertEquals(-90.0, calculator.applyDiscount(-100.0, 10.0));
     }
+
+    @Test
+    void appliesDiscountWithSmallPrice() {
+        assertEquals(0.0, calculator.applyDiscount(0.01, 100.0));
+    }
 }
