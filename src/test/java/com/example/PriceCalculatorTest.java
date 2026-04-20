@@ -78,4 +78,9 @@ class PriceCalculatorTest {
     void appliesDiscountToLargePriceCorrectly() {
         assertEquals(900000000.0, calculator.applyDiscount(1000000000.0, 10.0));
     }
+
+    @Test
+    void appliesDiscountToZeroPrice() {
+        assertEquals(0.0, calculator.applyDiscount(0.0, 10.0));
+    }
 }
