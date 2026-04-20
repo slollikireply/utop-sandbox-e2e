@@ -34,6 +34,14 @@ class CalculatorTest {
     }
 
     @Test
+    void subtractHandlesVariousCases() {
+        assertEquals(2, calculator.subtract(5, 3)); // Larger minus smaller
+        assertEquals(-2, calculator.subtract(3, 5)); // Smaller minus larger
+        assertEquals(5, calculator.subtract(5, 0)); // Subtract zero
+        assertEquals(-5, calculator.subtract(0, 5)); // Subtract from zero
+    }
+
+    @Test
     void divideReturnsOneForEqualOperands() {
         assertEquals(1, calculator.divide(7, 7));
     }
