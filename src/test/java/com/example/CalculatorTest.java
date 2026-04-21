@@ -23,6 +23,9 @@ public class CalculatorTest {
     @Test
     void multiplyReturnsZeroWhenOneOperandIsZero() {
         assertEquals(0, calc.multiply(3, 0));
+        assertEquals(6, calc.multiply(2, 3)); // Added to test multiplication of two positive numbers
+        assertEquals(-6, calc.multiply(2, -3)); // Added to test multiplication of a positive and a negative number
+        assertEquals(6, calc.multiply(-2, -3)); // Added to test multiplication of two negative numbers
     }
 
     @Test
