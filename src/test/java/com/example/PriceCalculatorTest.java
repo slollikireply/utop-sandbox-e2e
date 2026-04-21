@@ -52,4 +52,15 @@ class PriceCalculatorTest {
     void appliesMaximumDiscountCorrectly() {
         assertEquals(0.0, calculator.applyDiscount(100.0, 100.0));
     }
+
+    @Test
+    void rejectsDiscountGreaterThanHundred() {
+        assertThrows(IllegalArgumentException.class,
+                () -> calculator.applyDiscount(100.0, 105.0));
+    }
+
+    @Test
+    void appliesVerySmallDiscountCorrectly() {
+        assertEquals(99.99, calculator.applyDiscount(100.0, 0.01), 0.001);
+    }
 }
