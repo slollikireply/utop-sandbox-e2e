@@ -18,6 +18,10 @@ public class CalculatorTest {
     @Test
     void subtractReturnsZeroForEqualOperands() {
         assertEquals(0, calc.subtract(5, 5));
+        assertEquals(3, calc.subtract(8, 5)); // Added to test subtraction with different positive operands
+        assertEquals(-3, calc.subtract(5, 8)); // Added to test subtraction resulting in a negative number
+        assertEquals(5, calc.subtract(5, 0)); // Added to test subtraction with zero
+        assertEquals(-5, calc.subtract(0, 5)); // Added to test subtraction from zero
     }
 
     @Test
