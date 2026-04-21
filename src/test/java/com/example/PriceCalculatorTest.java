@@ -45,5 +45,8 @@ class PriceCalculatorTest {
         assertEquals(0.0, calculator.applyDiscount(100.0, 100.0));
         assertThrows(IllegalArgumentException.class, () -> calculator.applyDiscount(100.0, 110.0));
         assertEquals(99.99, calculator.applyDiscount(100.0, 0.01), 0.001);
+        // Added assertions to cover edge cases
+        assertEquals(0.0, calculator.applyDiscount(0.0, 50.0)); // Zero price
+        assertEquals(100.0, calculator.applyDiscount(100.0, 0.0)); // Zero discount
     }
 }
