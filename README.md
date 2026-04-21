@@ -36,3 +36,5 @@ mvn org.pitest:pitest-maven:mutationCoverage
 
 A healthy run reports a mix of `KILLED` (the strong assertions) and
 `SURVIVED` (the weak ones). UTOP only acts on `SURVIVED`.
+
+<!-- E2E run trigger 20260421-095725 -->
