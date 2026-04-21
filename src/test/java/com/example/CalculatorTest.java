@@ -2,6 +2,7 @@ package com.example;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -39,5 +40,9 @@ public class CalculatorTest {
     @Test
     void isEvenTrueForTwo() {
         assertTrue(calc.isEven(2));
+        assertTrue(calc.isEven(0)); // Added to test zero, an even number
+        assertTrue(calc.isEven(4)); // Added to test another even number
+        assertFalse(calc.isEven(1)); // Added to test an odd number
+        assertFalse(calc.isEven(3)); // Added to test another odd number
     }
 }
